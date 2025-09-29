@@ -7,4 +7,5 @@ resources:
 
 images:
   - name: ayushbhagat/hello-world-app
-    newTag: latest   # Image Updater will update this automatically
+    newTag: v1   # Start with v1; Image Updater will change this to v2, v3 etc.
+

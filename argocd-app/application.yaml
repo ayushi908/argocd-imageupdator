@@ -5,7 +5,8 @@ metadata:
   namespace: argocd
   annotations:
     argocd-image-updater.argoproj.io/image-list: hello=ayushbhagat/hello-world-app
-    argocd-image-updater.argoproj.io/hello.update-strategy: latest
+    argocd-image-updater.argoproj.io/hello.update-strategy: semver
+    argocd-image-updater.argoproj.io/hello.allow-tags: regexp:^v[0-9]+$
     argocd-image-updater.argoproj.io/write-back-method: git:secret:argocd/git-creds
 spec:
   project: default
@@ -13,7 +14,7 @@ spec:
     repoURL: https://github.com/ayushi908/argocd-imageupdator.git
     targetRevision: main
     path: k8s
-    kustomize: {}   # <-- Important for Kustomize
+    kustomize: {}
   destination:
     server: https://kubernetes.default.svc
     namespace: default
