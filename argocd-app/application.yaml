@@ -1,0 +1,23 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: hello-world-app
+  namespace: argocd
+  annotations:
+    argocd-image-updater.argoproj.io/image-list: hello=ayushbhagat/hello-world-app
+    argocd-image-updater.argoproj.io/hello.update-strategy: latest
+    argocd-image-updater.argoproj.io/write-back-method: git:secret:argocd/git-creds
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/ayushi908/argocd-imageupdator.git
+    targetRevision: main
+    path: k8s
+    kustomize: {}   # <-- Important for Kustomize
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: default
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
