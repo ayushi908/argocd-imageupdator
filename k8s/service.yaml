@@ -3,7 +3,7 @@ kind: Service
 metadata:
   name: hello-world-svc
 spec:
-  type: LoadBalancer   # NodePort if using local cluster
+  type: NodePort   # NodePort if using local cluster
   selector:
     app: hello-world-app
   ports:
