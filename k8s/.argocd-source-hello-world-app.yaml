@@ -1,0 +1,3 @@
+kustomize:
+  images:
+  - ayushbhagat/hello-world-app:ced784d
