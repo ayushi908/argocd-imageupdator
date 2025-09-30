@@ -4,6 +4,11 @@ on:
   push:
     branches:
       - main
+    paths:
+      - "app/**"                 # Trigger if app code changes
+      - "k8s/**"                 # Trigger if Kubernetes manifests change
+      - "Dockerfile"             # Trigger if Dockerfile changes
+      - ".github/workflows/**"   # Trigger if workflow config changes
 
 jobs:
   build:
@@ -22,13 +27,11 @@ jobs:
       - name: Build Docker Image
         run: |
           IMAGE_NAME=ayushbhagat/hello-world-app
-          IMAGE_TAG=v${GITHUB_RUN_NUMBER}  # auto-increment version
+          IMAGE_TAG=v${GITHUB_RUN_NUMBER}
           docker build -t $IMAGE_NAME:$IMAGE_TAG .
-          
 
       - name: Push Docker Image
         run: |
           IMAGE_NAME=ayushbhagat/hello-world-app
           IMAGE_TAG=v${GITHUB_RUN_NUMBER}
           docker push $IMAGE_NAME:$IMAGE_TAG
-          
