@@ -6,7 +6,6 @@ on:
       - main
     paths:
       - "app/**"                 # Trigger if app code changes
-      - "k8s/**"                 # Trigger if Kubernetes manifests change
       - "Dockerfile"             # Trigger if Dockerfile changes
       - ".github/workflows/**"   # Trigger if workflow config changes
 
