@@ -115,6 +115,9 @@ ArgoCD syncs → deployment updated in Kubernetes.
 kubectl get pods
 kubectl get svc
 
+Check the pods in default namespace
+kubectl get pods -n default
+
 
 (create Git credentials (git-creds) for ArgoCD Image Updater)
 so it can commit back to your repository, and then use them in application.yaml
