@@ -1,3 +1,3 @@
 kustomize:
   images:
-  - ayushbhagat/hello-world-app:v76
+  - ayushbhagat/hello-world-app:v78
