@@ -34,3 +34,4 @@ jobs:
           IMAGE_NAME=ayushbhagat/hello-world-app
           IMAGE_TAG=v${GITHUB_RUN_NUMBER}
           docker push $IMAGE_NAME:$IMAGE_TAG
+          
